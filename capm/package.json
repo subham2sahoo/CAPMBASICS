@@ -9,6 +9,7 @@
     "@sap/cds": "^7",
     "@sap/cds-common-content": "^2.0.0",
     "@sap/cds-hana": "^2",
+    "@sap/vscode-cds": "^8.0.1",
     "@sap/xssec": "^3",
     "cookie-parser": "^1.4.6",
     "csrf": "^3.1.0",
