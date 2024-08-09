@@ -1,0 +1,7 @@
+
+# auto generated wildcard
+transmittalmainpage/db/.env
+# auto generated wildcard
+try/db/.env
+/cloud-cap-samples
+.vscode

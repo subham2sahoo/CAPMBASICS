@@ -1,0 +1,16 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+	<Dialog id="idRegisterDialog" contentWidth="30%" contentHeight="50%" >
+  <content>
+  <SearchField id="idSearchProject" liveChange="onSearchProject" width="100%" ></SearchField>
+   <List id="idProjectList" mode="MultiSelect" items="{/items}" selectionChange="onSelectProject">
+   <StandardListItem title="{PROJ_NO}" description="{PROJ_DEC}" selected="{REGISTER}"></StandardListItem>
+   </List>
+  </content>
+  <beginButton>
+		<Button tooltip="ADD" text="ADD" type="Accept" press="onAddProject"/>
+  </beginButton>
+  <endButton>
+        <Button tooltip="Cancel" text="CANCEL" type="Reject" press=".onCloseOption"/>
+  </endButton>
+	</Dialog>
+</core:FragmentDefinition>

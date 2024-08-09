@@ -1,14 +1,14 @@
 _schema-version: "3.1"
-ID: capm
+ID: transmittalmainpage
 description: A simple CAP project.
 version: 1.0.0
 modules:
-- name: capm-srv
+- name: transmittalmainpage-srv
   type: nodejs
   path: gen/srv
   requires:
-  - name: capm-auth
-  - name: capm-db
+  - name: transmittalmainpage-auth
+  - name: transmittalmainpage-db
   provides:
   - name: srv-api
     properties:
@@ -19,14 +19,14 @@ modules:
     readiness-health-check-type: http
   build-parameters:
     builder: npm
-- name: capm-db-deployer
+- name: transmittalmainpage-db-deployer
   type: hdb
-  path: db
+  path: gen/db
   requires:
-  - name: capm-db
+  - name: transmittalmainpage-db
   parameters:
     buildpack: nodejs_buildpack
-- name: capm
+- name: transmittalmainpage
   type: approuter.nodejs
   path: app/router
   requires:
@@ -36,8 +36,8 @@ modules:
       forwardAuthToken: true
       name: srv-api
       url: ~{srv-url}
-  - name: capm-auth
-  - name: capm-destination-service
+  - name: transmittalmainpage-auth
+  - name: transmittalmainpage-destination-service
     group: destinations
     properties:
       forwardAuthToken: false
@@ -47,23 +47,23 @@ modules:
     disk-quota: 256M
     keep-existing-routes: true
     memory: 256M
-- name: capm-app-content
+- name: transmittalmainpage-app-content
   type: com.sap.application.content
   path: .
   requires:
-  - name: capm-repo-host
+  - name: transmittalmainpage-repo-host
     parameters:
       content-target: true
   build-parameters:
     build-result: resources
     requires:
     - artifacts:
-      - demo.zip
-      name: demo
+      - comtranstransmittalmainpage.zip
+      name: comtranstransmittalmainpage
       target-path: resources/
-- name: demo
+- name: comtranstransmittalmainpage
   type: html5
-  path: app/demo
+  path: app/transmittalmainpage
   build-parameters:
     build-result: dist
     builder: custom
@@ -72,27 +72,27 @@ modules:
     - npm run build:cf
     supported-platforms: []
 resources:
-- name: capm-auth
+- name: transmittalmainpage-auth
   type: org.cloudfoundry.managed-service
   parameters:
     config:
       tenant-mode: dedicated
-      xsappname: capm-${org}-${space}
+      xsappname: transmittalmainpage-${org}-${space}
     path: ./xs-security.json
     service: xsuaa
     service-plan: application
-- name: capm-db
+- name: transmittalmainpage-db
   type: com.sap.xs.hdi-container
   parameters:
     service: hana
     service-plan: hdi-shared
-- name: capm-repo-host
+- name: transmittalmainpage-repo-host
   type: org.cloudfoundry.managed-service
   parameters:
     service: html5-apps-repo
-    service-name: capm-html5-srv
+    service-name: transmittalmainpage-html5-srv
     service-plan: app-host
-- name: capm-destination-service
+- name: transmittalmainpage-destination-service
   type: org.cloudfoundry.managed-service
   parameters:
     config:
@@ -108,7 +108,7 @@ resources:
           existing_destinations_policy: update
       version: 1.0.0
     service: destination
-    service-name: capm-destination-service
+    service-name: transmittalmainpage-destination-service
     service-plan: lite
 parameters:
   deploy_mode: html5-repo

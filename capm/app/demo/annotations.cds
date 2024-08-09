@@ -1,0 +1,1 @@
+using bookshop as service from '../../srv/model_srv';

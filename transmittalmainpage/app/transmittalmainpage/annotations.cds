@@ -1,0 +1,1 @@
+using TRANS_SRV as service from '../../srv/model';

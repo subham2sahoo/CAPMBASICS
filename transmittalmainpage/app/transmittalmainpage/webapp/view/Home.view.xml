@@ -1,0 +1,21 @@
+<mvc:View xmlns:core="sap.ui.core" controllerName="com.trans.transmittalmainpage.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="Document Controller" titleAlignment="Center">
+    <headerContent>
+			<Button text="Edit" press="onEdit"></Button>
+    <Button text="Register" press="onRegister"></Button>
+		</headerContent>
+    <content>
+    
+    <SearchField placeholder="Project#Description"></SearchField>
+    <HBox id="idMainTiles" items="{/items}">
+    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" scope="{=${oGModel>/removeTile}?'ActionRemove':'Display'}"  header="{PROJ_DEC} &#10; {PROJ_NO}" press="onPressTitle"
+		>
+    <TileContent >
+    </TileContent>
+	</GenericTile>
+    </HBox>
+    </content>
+    </Page>
+</mvc:View>

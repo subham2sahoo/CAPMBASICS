@@ -14,6 +14,7 @@ aspect cuid {
 entity Books : cuid {
   TITLE  : String;
   author : Association to Authors;
+  stock:Integer;
 }
 
 // https://port4004-workspaces-ws-vzvpb.us10.trial.applicationstudio.cloud.sap/odata/v4/bookshop/books?$expand=author
