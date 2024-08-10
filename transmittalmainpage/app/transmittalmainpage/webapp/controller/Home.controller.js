@@ -53,9 +53,11 @@ sap.ui.define([
                     urlParameters: { items: JSON.stringify({ item: selectedItems, FLAG: "UPDATE" }) },
                     success: function (oRes) {
                         let bindData = that.byId("idMainTiles").getItems().map(o=>o.getBindingContext().getObject());
+                        that.byId("idMainTiles").getItems().map(i=>i.destroy())
                         that.byId("idMainTiles").setModel(new JSONModel({
                             items: [...bindData, ...selectedItems].filter(o => o.REGISTER)
-                        }))
+                        }));
+                        // that.byId("idMainTiles").getModel().refresh(true);
                         that.registerDialog.close();
                     },
                     error: function (oError) {

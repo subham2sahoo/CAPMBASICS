@@ -9,13 +9,13 @@
     <content>
     
     <SearchField placeholder="Project#Description"></SearchField>
-    <HBox id="idMainTiles" items="{/items}">
+    <FlexBox id="idMainTiles" items="{/items}">
     <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" scope="{=${oGModel>/removeTile}?'ActionRemove':'Display'}"  header="{PROJ_DEC} &#10; {PROJ_NO}" press="onPressTitle"
 		>
     <TileContent >
     </TileContent>
 	</GenericTile>
-    </HBox>
+    </FlexBox>
     </content>
     </Page>
 </mvc:View>

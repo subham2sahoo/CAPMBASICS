@@ -21,7 +21,7 @@ modules:
     builder: npm
 - name: transmittalmainpage-db-deployer
   type: hdb
-  path: gen/db
+  path: db
   requires:
   - name: transmittalmainpage-db
   parameters:
